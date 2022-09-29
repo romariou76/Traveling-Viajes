@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Traveling.ViewModels"
+             xmlns:model="clr-namespace:Traveling.Models"
+             x:Class="Traveling.Views.TravelPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Reservar" Command="{Binding AddTravelCommand}"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <RefreshView x:DataType="local:TravelViewModel"
+                         Command="{Binding LoadTravelCommand}">
+                <CollectionView
+                    ItemsSource="{Binding TravelInfos}"
+                    SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout x:DataType="model:TravelInfo">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Grid.RowSpan="2" Source="{Binding ImageUrl}"></Image>
+                                    <StackLayout>
+                                        <Label Grid.Column="1" Text="{Binding TravelName}" FontAttributes="Bold"></Label>
+                                            <Label Grid.Column="1" Text="{Binding Description}" VerticalOptions="End"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>                
+            </RefreshView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
