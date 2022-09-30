@@ -1,12 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Traveling.Views.AddTravelPage">
+             x:Class="Traveling.Views.AddTravelPage"
+             xmlns:local="clr-namespace:Traveling.ViewModels">
+    <ContentPage.BindingContext>
+        <local:AddTravelViewModel/>
+    </ContentPage.BindingContext>    
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Spacing="5" Padding="15">
+            <Label Text="Reserve un viaje ahora!" TextColor="Purple" FontSize="Title" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
+            <Label Text="Usuario" FontSize="Medium" TextColor="Black"></Label>
+            <Entry Text="{Binding TravelInfo.TravelName, Mode=TwoWay}" FontSize="Medium" Placeholder="Su nombre" PlaceholderColor="Gray" TextColor="black"></Entry>
+            <Label Text="Lugar de Viaje" FontSize="Medium" TextColor="Black"></Label>
+            <Editor Text="{Binding TravelInfo.Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" TextColor="black" Placeholder="Su lugar de viaje" PlaceholderColor="Gray" Margin="0"></Editor>
+            <Label Text="Imagen" FontSize="Medium" TextColor="Black"></Label>
+            <Editor Text="{Binding TravelInfo.ImageUrl, Mode=TwoWay}" AutoSize="TextChanges" Placeholder="Madrid, Ica, Holanda..." PlaceholderColor="Gray" TextColor="black" FontSize="Medium" Margin="0"></Editor>
+
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Cancelar" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="red"></Button>
+                <Button Text="Reservar" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+            </StackLayout>
+            
+            <Label Text="a"></Label>
+            <Label Text="a"></Label>
+            <Label Text="a"></Label>
+            <Label Text="a"></Label>
+            
+            <Label Text="Lugares turisticos" FontSize="Title" TextColor="Black" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="* Madrid" TextColor="Black" FontSize="16"></Label>
+            <Label Text="* Arequipa" TextColor="Black" FontSize="16"></Label>
+            <Label Text="* Argentina" TextColor="Black" FontSize="16"></Label>
+            <Label Text="* Holanda" TextColor="Black" FontSize="16"></Label>
+            <Label Text="* Cuzco" TextColor="Black" FontSize="16"></Label>
+            <Label Text="* Puno" TextColor="Black" FontSize="16"></Label>
+            <Label Text="* Ica" TextColor="Black" FontSize="16"></Label>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

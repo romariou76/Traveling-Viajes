@@ -23,28 +23,34 @@
         <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
+                    <Image Source="logo.png" VerticalOptions="Center" HeightRequest="64" />
                 </ContentView>
             </StackLayout>
         </StackLayout>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <Label Text="Start developing now" FontSize="Title"/>
-                <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="0,0,0,0"/>
-                <Label FontSize="16" Padding="0,24,0,0">
+                <Label Text="Bienvenido a Traveling Viajes" FontSize="Title" TextColor="black" FontAttributes="Bold"/>
+                <Label Text="Traveling Viajes es una de las agencias de viaje con más trayectoria de Latinoamérica, reconocida y recomendada por miles de viajeros de todo el continente. Aprovecha nuestras ofertas y promociones de viaje y recorre el mundo entero. Compra tu viaje en Traveling Viajes desde la app. Si quiere reservar algun viaje o quieres cambia algo de tu viaje, puedes hacerlo en Mis Viajes. Viaja con la confianza de que puedes contar con nosotros para lo que necesites." TextColor="black" FontSize="16" Padding="0,0,0,0"/>
+                <Label Text="Lugares turisticos" FontSize="Title" TextColor="Black" FontAttributes="Bold"/>
+                <Label Text="* Madrid" TextColor="Black" FontSize="16"></Label>
+                <Label Text="* Arequipa" TextColor="Black" FontSize="16"></Label>
+                <Label Text="* Argentina" TextColor="Black" FontSize="16"></Label>
+                <Label Text="* Holanda" TextColor="Black" FontSize="16"></Label>
+                <Label Text="* Cuzco" TextColor="Black" FontSize="16"></Label>
+                <Label Text="* Puno" TextColor="Black" FontSize="16"></Label>
+                <Label Text="* Ica" TextColor="Black" FontSize="16"></Label>
+                <Label FontSize="Title" Padding="0,24,0,0" TextColor="Black">
+
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="Learn more at "/>
-                                <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                                <Span Text="Desarrollado por Romario" FontSize="20" FontAttributes="Bold" TextColor="black"/>
+                                <Span Text="Sigueme: " TextColor="black" FontSize="20" FontAttributes="Bold"/>
+                                <Span Text="https://github.com/romariou76" TextColor="black"/>
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Button Margin="0,10,0,0" Text="Learn more"
-                        Command="{Binding OpenWebCommand}"
-                        BackgroundColor="{StaticResource Primary}"
-                        TextColor="White" />
             </StackLayout>
         </ScrollView>
     </Grid>

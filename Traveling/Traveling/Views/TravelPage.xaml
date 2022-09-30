@@ -5,26 +5,35 @@
              xmlns:model="clr-namespace:Traveling.Models"
              x:Class="Traveling.Views.TravelPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Reservar" Command="{Binding AddTravelCommand}"/>
+        <ToolbarItem Text="Add" Command="{Binding AddTravelCommand}"/>
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
         <StackLayout>
+            <Label Text="Sus Viajes Reservados" TextColor="Black" FontSize="Title" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
             <RefreshView x:DataType="local:TravelViewModel"
-                         Command="{Binding LoadTravelCommand}">
+                         Command="{Binding LoadTravelCommand}"
+                         IsRefreshing="{Binding IsBusy,Mode=OneWay}">
                 <CollectionView
                     ItemsSource="{Binding TravelInfos}"
                     SelectionMode="None">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout x:DataType="model:TravelInfo">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image Grid.RowSpan="2" Source="{Binding ImageUrl}"></Image>
-                                    <StackLayout>
-                                        <Label Grid.Column="1" Text="{Binding TravelName}" FontAttributes="Bold"></Label>
-                                            <Label Grid.Column="1" Text="{Binding Description}" VerticalOptions="End"></Label>
-                                    </StackLayout>
-                                </StackLayout>
+                                <Grid Padding="5">
+                                    <Frame CornerRadius="10" HasShadow="True">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image Grid.RowSpan="2" Source="{Binding ImageUrl}" Aspect="AspectFill" HeightRequest="60" WidthRequest="60"></Image>
+                                            <StackLayout>
+                                                <Label Grid.Column="1" Text="{Binding TravelName}" FontAttributes="Bold" TextColor="Black"></Label>
+                                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Description}" VerticalOptions="End" TextColor="Black"></Label>
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="Center" HorizontalOptions="EndAndExpand">
+                                                <Image Source="editar.png" Grid.Column="3" WidthRequest="30" HeightRequest="30" VerticalOptions="End"></Image>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
                             </StackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

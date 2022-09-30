@@ -20,13 +20,10 @@ namespace Traveling.ViewModels
         {
             LoadTravelCommand = new Command(async()=> await ExecuteLoadTravelCommand());
             TravelInfos = new ObservableCollection<TravelInfo>();
-            AddTravelCommand = new Command(onAddTravel());
+            AddTravelCommand = new Command(OnAddTravel);
         }
 
-        private Action<object> onAddTravel()
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public void OnAppearing()
         {
@@ -57,7 +54,7 @@ namespace Traveling.ViewModels
             }
         }
 
-        private async void OnaddTravel(object obj)
+        private async void OnAddTravel(object obj)
         {
             await Shell.Current.GoToAsync(nameof(AddTravelPage));
         }
